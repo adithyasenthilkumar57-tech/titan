@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export async function GET(req) {
-  const videoPath = path.join(process.cwd(), "public", "titan herosection.mp4");
+  const videoPath = path.join(process.cwd(), "public", "titan-herosection.mp4");
 
   if (!fs.existsSync(videoPath)) {
     return new NextResponse("Video not found", { status: 404 });

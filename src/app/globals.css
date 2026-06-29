@@ -150,47 +150,41 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%) translateY(0);
 }
 
-/* Hero Section Player Background */
-.hero-video-bg {
+/* Hero Section — Static Image Background */
+.hero-image-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.hero-video-bg iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw; /* 16:9 aspect ratio */
-  min-height: 100vh;
-  min-width: 177.78vh; /* 16:9 aspect ratio */
-  transform: translate(-50%, -50%);
-}
-
-.hero-video-bg video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  will-change: transform;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    rgba(18, 17, 16, 0.5) 0%,
-    rgba(18, 17, 16, 0.8) 50%,
+    135deg,
+    rgba(18, 17, 16, 0.75) 0%,
+    rgba(18, 17, 16, 0.45) 50%,
     var(--bg-primary) 100%
   );
   z-index: 1;
+}
+
+/* Hero text is always light — bg image is always dark */
+#hero h1 {
+  color: #E2DDDB;
+}
+#hero .hero-subtitle {
+  color: rgba(226, 221, 219, 0.78);
+}
+#hero .badge-text-label {
+  color: rgba(226, 221, 219, 0.6);
 }
 
 /* Premium Buttons */
@@ -643,3 +637,193 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(45deg);
 }
 
+
+/* ===================== LIGHT THEME ===================== */
+[data-theme="light"] {
+  --bg-primary: #F0EDE9;
+  --bg-secondary: #FAF8F6;
+  --bg-tertiary: #E5E0DA;
+  --text-primary: #1A1917;
+  --text-secondary: #5C5754;
+  --accent: #D93829;
+  --accent-glow: rgba(217, 56, 41, 0.25);
+  --border: rgba(26, 25, 23, 0.1);
+  --border-hover: rgba(26, 25, 23, 0.28);
+}
+
+[data-theme="light"] .glass {
+  background: rgba(250, 248, 246, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+[data-theme="light"] .marquee-text {
+  -webkit-text-stroke: 1px rgba(26, 25, 23, 0.12);
+}
+
+[data-theme="light"] .btn-secondary {
+  border-color: rgba(26, 25, 23, 0.2);
+  color: #E2DDDB;
+}
+
+[data-theme="light"] .btn-primary {
+  background-color: #1A1917;
+  color: #F0EDE9;
+}
+
+[data-theme="light"] .testimonial-card {
+  background: var(--bg-primary);
+}
+
+[data-theme="light"] .flip-card-front {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] .flip-card-back {
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+}
+
+[data-theme="light"] .category-card {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] ::-webkit-scrollbar {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-color: var(--bg-secondary);
+}
+
+/* ===================== THEME TOGGLE BUTTON ===================== */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast),
+              color var(--transition-fast), transform 0.35s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(22deg) scale(1.1);
+}
+
+/* ===================== PLAY VIDEO BUTTON ===================== */
+.btn-play-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #E2DDDB;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color var(--transition-fast);
+  padding: 0;
+}
+
+.btn-play-video:hover {
+  color: var(--accent);
+}
+
+.play-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(226, 221, 219, 0.4);
+  background: rgba(226, 221, 219, 0.06);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.btn-play-video:hover .play-icon-circle {
+  border-color: var(--accent);
+  background-color: var(--accent);
+  transform: scale(1.08);
+}
+
+/* ===================== VIDEO MODAL ===================== */
+.video-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modal-fade-in 0.2s ease;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.video-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+  animation: modal-slide-in 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: default;
+}
+
+@keyframes modal-slide-in {
+  from { transform: scale(0.93) translateY(24px); opacity: 0; }
+  to   { transform: scale(1) translateY(0);       opacity: 1; }
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.video-modal-close:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ===================== SCROLL FLOAT ANIMATION ===================== */
+@keyframes scroll-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}

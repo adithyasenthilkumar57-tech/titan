@@ -21,6 +21,21 @@ const CATEGORIES = [
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [globalSet, setGlobalSet] = useState([]);
+  const [theme, setTheme] = useState("dark");
+
+  // Restore theme from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("buckler-theme") || "dark";
+    setTheme(saved);
+    document.documentElement.setAttribute("data-theme", saved);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("buckler-theme", next);
+    document.documentElement.setAttribute("data-theme", next);
+  };
 
   // Smooth scroll helper
   const scrollToSection = (id) => {
@@ -69,6 +84,8 @@ export default function Home() {
           onNavClick={scrollToSection}
           cartCount={globalSet.length}
           onCartClick={handleOpenCart}
+          theme={theme}
+          onThemeToggle={toggleTheme}
         />
 
         <main>

@@ -1,46 +1,48 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 export default function HeroSection({ onExploreClick, onSetBuilderClick }) {
-  const videoRef = useRef(null);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const modalVideoRef = useRef(null);
 
+  // Play / pause modal video when it opens or closes
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(err => {
-        console.log("Video autoplay handled:", err);
-      });
+    const video = modalVideoRef.current;
+    if (!video) return;
+    if (videoModalOpen) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
     }
+  }, [videoModalOpen]);
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") setVideoModalOpen(false); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, []);
 
   return (
     <section id="hero" style={styles.section}>
-      {/* Background Video */}
-      <div className="hero-video-bg">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        >
-          <source src="/titan%20herosection.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      
-      {/* Overlay for Dark Theme Contrast */}
-      <div className="hero-overlay"></div>
+      {/* Background Image */}
+      <div className="hero-image-bg" />
+
+      {/* Gradient Overlay */}
+      <div className="hero-overlay" />
 
       {/* Hero Content */}
       <div className="container" style={styles.contentContainer}>
         <div style={styles.heroTextContent}>
-          {/* Badge Tagline */}
+
+          {/* Badge */}
           <div style={styles.badge}>
             <span style={styles.badgeNew}>NEW</span>
-            <span style={styles.badgeText}>Buckler 2025 Catalog!</span>
+            <span className="badge-text-label" style={styles.badgeText}>
+              Buckler 2025 Catalog!
+            </span>
           </div>
 
           {/* Heading */}
@@ -50,33 +52,50 @@ export default function HeroSection({ onExploreClick, onSetBuilderClick }) {
           </h1>
 
           {/* Subtitle */}
-          <p style={styles.subtitle}>
-            We are a complete ecosystem of high-quality fitness solutions. 
-            We offer <strong style={{ color: '#fff' }}>high-standard equipment</strong> and a variety of services to 
-            <strong style={{ color: '#fff' }}> build your gym from scratch</strong>.
+          <p className="hero-subtitle" style={styles.subtitle}>
+            We are a complete ecosystem of high-quality fitness solutions.
+            We offer{" "}
+            <strong style={{ color: "#E2DDDB" }}>high-standard equipment</strong>
+            {" "}and a variety of services to{" "}
+            <strong style={{ color: "#E2DDDB" }}>build your gym from scratch</strong>.
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTA Row */}
           <div style={styles.buttonRow}>
             <button className="btn-primary" onClick={onExploreClick} style={styles.btn}>
               Explore Machines
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.172 8.99998L-3.83699e-07 8.99998L-2.96276e-07 6.99998L12.172 6.99998L6.808 1.63598L8.222 0.221985L16 7.99998L8.222 15.778L6.808 14.364L12.172 8.99998Z" fill="currentColor"/>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M12.172 9L0 9L0 7L12.172 7L6.808 1.636L8.222 0.222L16 8L8.222 15.778L6.808 14.364L12.172 9Z" fill="currentColor" />
               </svg>
             </button>
-            
+
             <button className="btn-secondary" onClick={onSetBuilderClick}>
               Build your Set
+            </button>
+
+            {/* Watch Showreel */}
+            <button
+              id="play-showreel-btn"
+              className="btn-play-video"
+              onClick={() => setVideoModalOpen(true)}
+              aria-label="Watch showreel"
+            >
+              <span className="play-icon-circle">
+                <svg width="13" height="15" viewBox="0 0 13 15" fill="none">
+                  <path d="M1 1.5L12 7.5L1 13.5V1.5Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+                </svg>
+              </span>
+              Watch Showreel
             </button>
           </div>
         </div>
 
-        {/* Scroll Indicator & Partners */}
+        {/* Scroll indicator & partner logo */}
         <div style={styles.heroFooter}>
           <div style={styles.scrollIndicator} onClick={onExploreClick}>
-            <img 
-              src="https://cdn.prod.website-files.com/66e9d3e7a6f59aedfd7b9f3f/674d1afbd80db1b0b3c40442_scroll-down.svg" 
-              alt="Scroll down indicator" 
+            <img
+              src="https://cdn.prod.website-files.com/66e9d3e7a6f59aedfd7b9f3f/674d1afbd80db1b0b3c40442_scroll-down.svg"
+              alt="Scroll down"
               style={styles.scrollIcon}
             />
             <span style={styles.scrollText}>Scroll to explore</span>
@@ -84,14 +103,49 @@ export default function HeroSection({ onExploreClick, onSetBuilderClick }) {
 
           <div style={styles.partnerLogoWrapper}>
             <span style={styles.partnerLabel}>Exclusive Partner:</span>
-            <img 
-              src="https://cdn.prod.website-files.com/66e9d3e7a6f59aedfd7b9f3f/67be1e1a85efc6345b4ad338_LogoRealLeader.svg" 
-              alt="RealLeader USA Logo" 
+            <img
+              src="https://cdn.prod.website-files.com/66e9d3e7a6f59aedfd7b9f3f/67be1e1a85efc6345b4ad338_LogoRealLeader.svg"
+              alt="RealLeader USA Logo"
               style={styles.partnerLogo}
             />
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {videoModalOpen && (
+        <div
+          className="video-modal-overlay"
+          onClick={() => setVideoModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="video-modal-inner"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="video-modal-close"
+              onClick={() => setVideoModalOpen(false)}
+              aria-label="Close video"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
+            <video
+              ref={modalVideoRef}
+              src="/titan-herosection.mp4"
+              controls
+              autoPlay
+              playsInline
+              style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -106,19 +160,7 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     overflow: "hidden",
-    paddingTop: "80px", // space for navbar
-  },
-  iframe: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    width: "100vw",
-    height: "56.25vw", // 16:9 Ratio
-    minHeight: "100vh",
-    minWidth: "177.78vh", // 16:9 Ratio
-    transform: "translate(-50%, -50%)",
-    pointerEvents: "none",
-    border: "none",
+    paddingTop: "80px",
   },
   contentContainer: {
     position: "relative",
@@ -139,8 +181,8 @@ const styles = {
     display: "inline-flex",
     alignItems: "center",
     gap: "0.75rem",
-    backgroundColor: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid var(--border)",
+    backgroundColor: "rgba(255,255,255,0.07)",
+    border: "1px solid rgba(226,221,219,0.15)",
     padding: "0.4rem 1rem",
     borderRadius: "100px",
     marginBottom: "2rem",
@@ -158,7 +200,6 @@ const styles = {
   badgeText: {
     fontSize: "0.8rem",
     fontWeight: 500,
-    color: "var(--text-secondary)",
   },
   title: {
     fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
@@ -171,7 +212,6 @@ const styles = {
   subtitle: {
     fontSize: "clamp(1rem, 1.25vw, 1.2rem)",
     lineHeight: "1.6",
-    color: "var(--text-secondary)",
     marginBottom: "2.5rem",
     maxWidth: "600px",
   },
@@ -179,10 +219,9 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
     gap: "1.25rem",
+    alignItems: "center",
   },
-  btn: {
-    borderRadius: "4px",
-  },
+  btn: { borderRadius: "4px" },
   heroFooter: {
     display: "flex",
     justifyContent: "space-between",
@@ -211,6 +250,7 @@ const styles = {
     textTransform: "uppercase",
     fontWeight: 700,
     letterSpacing: "0.1em",
+    color: "rgba(226,221,219,0.7)",
   },
   partnerLogoWrapper: {
     display: "flex",
@@ -222,22 +262,12 @@ const styles = {
     fontSize: "0.65rem",
     textTransform: "uppercase",
     letterSpacing: "0.1em",
-    color: "var(--text-secondary)",
+    color: "rgba(226,221,219,0.55)",
     fontWeight: 600,
   },
   partnerLogo: {
     height: "22px",
     opacity: 0.9,
-  }
+    filter: "brightness(0) invert(1)",
+  },
 };
-
-if (typeof document !== "undefined") {
-  const styleEl = document.createElement("style");
-  styleEl.innerHTML = `
-    @keyframes scroll-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-    }
-  `;
-  document.head.appendChild(styleEl);
-}
