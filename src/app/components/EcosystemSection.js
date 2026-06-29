@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const CARDS = [
   {
     id: 1,
-    title: "Buckler Machines",
+    title: "Titan Machines",
     frontText: "High-standard strength and cardio equipment.",
     backText: "We offer machines with advanced biomechanics, premium ergonomic design, and unmatched durability to guarantee top-level workouts.",
     imgUrl: "https://cdn.prod.website-files.com/66e9d3e7a6f59aedfd7b9f3f/67d0d18716f0889d7af37ab7_Feature-min.jpg",
@@ -13,15 +13,15 @@ const CARDS = [
   },
   {
     id: 2,
-    title: "Buckler Care",
+    title: "Titan Care",
     frontText: "Premium technical support and exclusive customer service.",
-    backText: "At Buckler Care, every customer is unique. We provide dedicated post-sale support, preventive maintenance plans, and original parts to keep your operation 100% running.",
+    backText: "At Titan Care, every customer is unique. We provide dedicated post-sale support, preventive maintenance plans, and original parts to keep your operation 100% running.",
     imgUrl: "https://cdn.prod.website-files.com/66e9d3e7a6f59aedfd7b9f3f/67d0d5f1079857304c942efa_Feature-3-min.jpg",
     icon: "heart"
   },
   {
     id: 3,
-    title: "Buckler GAAS",
+    title: "Titan GAAS",
     frontText: "Strategy, marketing, and architecture for your gym.",
     backText: "Gym As A Service: We assist from the 3D architectural project and branding to launch marketing strategies and technical certification of coaches.",
     imgUrl: "https://cdn.prod.website-files.com/66e9d3e7a6f59aedfd7b9f3f/67d0d623f023ca8094bc4320_Feature-5-min.jpg",
@@ -29,7 +29,7 @@ const CARDS = [
   },
   {
     id: 4,
-    title: "Buckler Tracking",
+    title: "Titan Tracking",
     frontText: "Total transparency from order to delivery.",
     backText: "Track all your order progress in real-time. Know exactly when your equipment will be manufactured, shipped, and installed by our team.",
     imgUrl: "https://cdn.prod.website-files.com/66e9d3e7a6f59aedfd7b9f3f/67d0d67853f76f38e16b736e_Feature-2-min.jpg",
@@ -78,13 +78,13 @@ export default function EcosystemSection() {
   };
 
   return (
-    <section id="buckler-360" style={styles.section}>
+    <section id="titan-360" style={styles.section}>
       <div className="container">
         {/* Header Title */}
         <div style={styles.header}>
           <div className="subhead-tag">
             <div style={styles.subheadDot}></div>
-            <span>Buckler 360</span>
+            <span>Titan 360</span>
           </div>
           <h2 style={styles.title}>A Complete Experience</h2>
           <p style={styles.subtitle}>

@@ -9,10 +9,10 @@ const FAQS = [
   },
   {
     question: "Can I customize the colors of my machines?",
-    answer: "Yes! Buckler offers exclusive customization for the metal frame (such as Matte Carbon, Liquid Silver, Champagne Gold) and the upholstery lining (Camel Tan, Crimson Red, Obsidian Black) to match the brand identity of your gym."
+    answer: "Yes! Titan offers exclusive customization for the metal frame (such as Matte Carbon, Liquid Silver, Champagne Gold) and the upholstery lining (Camel Tan, Crimson Red, Obsidian Black) to match the brand identity of your gym."
   },
   {
-    question: "What warranty does Buckler offer?",
+    question: "What warranty does Titan offer?",
     answer: "We offer a 5-year warranty for the steel structure integrity, 1 year for mechanical bearings and pulleys, and 90 days for steel cables and cushions, with easy part replacements."
   },
   {
@@ -20,8 +20,8 @@ const FAQS = [
     answer: "Our equipment combines advanced biomechanical engineering design in partnership with Realleader USA and local assembly. This guarantees international manufacturing quality with fast delivery and parts availability."
   },
   {
-    question: "How does the Buckler Care after-sales support work?",
-    answer: "Buckler Care provides a customer portal with priority technical support, immediate replacement parts shipping, and preventive assistance with technicians qualified for technical assembly."
+    question: "How does the Titan Care after-sales support work?",
+    answer: "Titan Care provides a customer portal with priority technical support, immediate replacement parts shipping, and preventive assistance with technicians qualified for technical assembly."
   }
 ];
 
@@ -43,7 +43,7 @@ export default function FAQ() {
           </div>
           <h2 style={styles.title}>Frequently Asked Questions</h2>
           <p style={styles.subtitle}>
-            Find answers to the most common questions regarding purchasing, customization, and technical assistance from Buckler.
+            Find answers to the most common questions regarding purchasing, customization, and technical assistance from Titan.
           </p>
         </div>
 

@@ -22,7 +22,7 @@ export default function Logo({ className = "", width = 160, height = 40 }) {
         fill="#D93829"
       />
       
-      {/* Brand Typography: BUCKLER */}
+      {/* Brand Typography: TITAN */}
       <text
         x="60"
         y="37"

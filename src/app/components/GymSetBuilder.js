@@ -49,7 +49,7 @@ export default function GymSetBuilder({ onAddToGlobalSet }) {
 
   const handleQuoteSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you ${formData.name}! Your quote request for ${addedItems.length} Buckler machines has been successfully sent!`);
+    alert(`Thank you ${formData.name}! Your quote request for ${addedItems.length} Titan machines has been successfully sent!`);
     setShowQuoteModal(false);
     setFormData({ name: "", email: "", phone: "", gymName: "" });
     setAddedItems([]);
@@ -211,7 +211,7 @@ export default function GymSetBuilder({ onAddToGlobalSet }) {
         <div style={styles.titleArea}>
           <div className="subhead-tag" style={{ justifyContent: "center" }}>
             <div style={styles.subheadDot}></div>
-            <span>Buckler Studio</span>
+            <span>Titan Studio</span>
           </div>
           <h2 style={styles.heading}>Create Your Gym Set</h2>
           <p style={styles.headingDesc}>
@@ -418,7 +418,7 @@ export default function GymSetBuilder({ onAddToGlobalSet }) {
                   value={formData.gymName}
                   onChange={e => setFormData({ ...formData, gymName: e.target.value })}
                   style={styles.formInput}
-                  placeholder="Buckler Gym"
+                  placeholder="Titan Gym"
                 />
               </div>
 

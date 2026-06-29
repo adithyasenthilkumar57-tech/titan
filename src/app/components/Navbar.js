@@ -67,8 +67,8 @@ export default function Navbar({ onNavClick, cartCount, onCartClick, theme, onTh
             </div>
           </div>
 
-          <a href="#buckler-360" onClick={() => handleLinkClick("buckler-360")} style={styles.navLink}>
-            Buckler 360
+          <a href="#titan-360" onClick={() => handleLinkClick("titan-360")} style={styles.navLink}>
+            Titan 360
           </a>
           <a href="#set-builder" onClick={() => handleLinkClick("set-builder")} style={styles.navLink}>
             Custom Set
@@ -161,8 +161,8 @@ export default function Navbar({ onNavClick, cartCount, onCartClick, theme, onTh
           <a href="#machines" onClick={() => handleLinkClick("machines")} style={styles.mobileNavLink}>
             Machines
           </a>
-          <a href="#buckler-360" onClick={() => handleLinkClick("buckler-360")} style={styles.mobileNavLink}>
-            Buckler 360
+          <a href="#titan-360" onClick={() => handleLinkClick("titan-360")} style={styles.mobileNavLink}>
+            Titan 360
           </a>
           <a href="#set-builder" onClick={() => handleLinkClick("set-builder")} style={styles.mobileNavLink}>
             Custom Set
