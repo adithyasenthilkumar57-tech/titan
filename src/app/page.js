@@ -106,7 +106,7 @@ export default function Home() {
                   </div>
                   <h2 style={styles.sectionHeading}>Excellence, Design & Durability</h2>
                   <p style={styles.aboutDescription}>
-                    As the exclusive partner of <strong>Realleader USA</strong>, Titan brings an imposing 
+                    As the exclusive partner of <strong>Realleader USA</strong>, TITAN brings an imposing 
                     line of bodybuilding equipment to the national market. Our machines combine advanced 
                     biomechanical engineering with high-performance ergonomics, making every workout an incomparable experience.
                   </p>
@@ -137,7 +137,7 @@ export default function Home() {
           {/* Slogans & Gym Partners Marquees */}
           <Marquee />
 
-          {/* Titan 360 Ecosystem Grid */}
+          {/* TITAN 360 Ecosystem Grid */}
           <EcosystemSection />
 
           {/* Testimonials Showcase Section */}
@@ -150,14 +150,14 @@ export default function Home() {
                 </div>
                 <h2 style={styles.sectionHeading}>Trusted by Professionals</h2>
                 <p style={styles.sectionSubheading}>
-                  Professional athletes and renowned trainers who validate the biomechanical quality of Titan equipment.
+                  Professional athletes and renowned trainers who validate the biomechanical quality of TITAN equipment.
                 </p>
               </div>
 
               <div className="testimonials-grid">
                 <div className="testimonial-card">
                   <p className="testimonial-text">
-                    "The biomechanics of Titan machines are out of this world. The muscle activation I feel in every single repetition is surgically precise. Equipment that truly elevates the training to a professional level."
+                    "The biomechanics of TITAN machines are out of this world. The muscle activation I feel in every single repetition is surgically precise. Equipment that truly elevates the training to a professional level."
                   </p>
                   <div style={styles.authorBox}>
                     <span style={styles.authorName}>Felipe Franco</span>
@@ -167,7 +167,7 @@ export default function Home() {
 
                 <div className="testimonial-card">
                   <p className="testimonial-text">
-                    "For anyone building or renovating a gym today, investing in Titan is a huge competitive advantage. Imposing, robust design that catches the eye of members right at the entrance."
+                    "For anyone building or renovating a gym today, investing in TITAN is a huge competitive advantage. Imposing, robust design that catches the eye of members right at the entrance."
                   </p>
                   <div style={styles.authorBox}>
                     <span style={styles.authorName}>Renato Cariani</span>
@@ -177,7 +177,7 @@ export default function Home() {
 
                 <div className="testimonial-card">
                   <p className="testimonial-text">
-                    "In my training programs, I demand the maximum from my clients, and the machines must endure the load. Titan's pulleys slide perfectly smoothly, without friction. Outstanding durability."
+                    "In my training programs, I demand the maximum from my clients, and the machines must endure the load. TITAN's pulleys slide perfectly smoothly, without friction. Outstanding durability."
                   </p>
                   <div style={styles.authorBox}>
                     <span style={styles.authorName}>Carol Vaz</span>
@@ -228,9 +228,9 @@ export default function Home() {
             <div style={styles.footerLinksGrid}>
               <div style={styles.footerColumn}>
                 <h4 style={styles.footerColTitle}>Institutional</h4>
-                <a href="#about" onClick={() => scrollToSection("about")} style={styles.footerLink}>About Titan</a>
+                <a href="#about" onClick={() => scrollToSection("about")} style={styles.footerLink}>About TITAN</a>
                 <a href="#machines" onClick={() => scrollToSection("machines")} style={styles.footerLink}>Our Catalog</a>
-                <a href="#titan-360" onClick={() => scrollToSection("titan-360")} style={styles.footerLink}>Titan 360</a>
+                <a href="#titan-360" onClick={() => scrollToSection("titan-360")} style={styles.footerLink}>TITAN 360</a>
                 <a href="#depoimentos" onClick={() => scrollToSection("depoimentos")} style={styles.footerLink}>Testimonials</a>
               </div>
 

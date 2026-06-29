@@ -12,10 +12,10 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Titan | Make your gym incomparable",
+  title: "TITAN | Make your gym incomparable",
   description: "We are a complete ecosystem of high-quality fitness solutions. We offer high-standard equipment and a variety of services to build your gym from scratch.",
   openGraph: {
-    title: "Titan | Make your gym incomparable",
+    title: "TITAN | Make your gym incomparable",
     description: "We are a complete ecosystem of high-quality fitness solutions.",
     images: ["https://cdn.prod.website-files.com/64bc1e3a2013e5d1f0ded954/64ddff69e4c1cd47c00e8875_buckler_open.jpg"],
   }

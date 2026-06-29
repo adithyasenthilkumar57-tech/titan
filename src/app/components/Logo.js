@@ -11,9 +11,9 @@ export default function Logo({ className = "", width = 160, height = 40 }) {
       className={className}
       style={{ display: "block" }}
     >
-      {/* Dynamic Shield/B Graphic Mark */}
+      {/* Dynamic Shield/T Graphic Mark */}
       <path
-        d="M10 5H30C40 5 46 10 46 17C46 22 42 25 37 26C43 27 48 31 48 38C48 45 41 49 31 49H10V5ZM20 14V22H29C32.5 22 34.5 20.5 34.5 18C34.5 15.5 32.5 14 29 14H20ZM20 30V40H30.5C34 40 36.5 38.5 36.5 35.5C36.5 32.5 34 30 30.5 30H20Z"
+        d="M10 5 H46 V15 H32 V49 H24 V15 H10 Z"
         fill="currentColor"
       />
       {/* Athletic Slash */}
@@ -34,7 +34,7 @@ export default function Logo({ className = "", width = 160, height = 40 }) {
           letterSpacing: "0.12em"
         }}
       >
-        UCKLER
+        TITAN
       </text>
       
       <text

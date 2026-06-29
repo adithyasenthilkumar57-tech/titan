@@ -41,7 +41,7 @@ export default function HeroSection({ onExploreClick, onSetBuilderClick }) {
           <div style={styles.badge}>
             <span style={styles.badgeNew}>NEW</span>
             <span className="badge-text-label" style={styles.badgeText}>
-              Titan 2025 Catalog!
+              TITAN 2025 Catalog!
             </span>
           </div>
 

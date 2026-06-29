@@ -68,7 +68,7 @@ export default function Navbar({ onNavClick, cartCount, onCartClick, theme, onTh
           </div>
 
           <a href="#titan-360" onClick={() => handleLinkClick("titan-360")} style={styles.navLink}>
-            Titan 360
+            TITAN 360
           </a>
           <a href="#set-builder" onClick={() => handleLinkClick("set-builder")} style={styles.navLink}>
             Custom Set
@@ -162,7 +162,7 @@ export default function Navbar({ onNavClick, cartCount, onCartClick, theme, onTh
             Machines
           </a>
           <a href="#titan-360" onClick={() => handleLinkClick("titan-360")} style={styles.mobileNavLink}>
-            Titan 360
+            TITAN 360
           </a>
           <a href="#set-builder" onClick={() => handleLinkClick("set-builder")} style={styles.mobileNavLink}>
             Custom Set
