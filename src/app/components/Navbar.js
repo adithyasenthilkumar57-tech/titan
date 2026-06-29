@@ -3,19 +3,13 @@
 import React, { useState } from "react";
 import Logo from "./Logo";
 
-interface NavbarProps {
-  onNavClick: (sectionId: string) => void;
-  cartCount: number;
-  onCartClick: () => void;
-}
-
-export default function Navbar({ onNavClick, cartCount, onCartClick }: NavbarProps) {
+export default function Navbar({ onNavClick, cartCount, onCartClick }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
-  const handleLinkClick = (sectionId: string) => {
+  const handleLinkClick = (sectionId) => {
     onNavClick(sectionId);
     setMobileMenuOpen(false);
     setDropdownOpen(false);
@@ -158,7 +152,7 @@ export default function Navbar({ onNavClick, cartCount, onCartClick }: NavbarPro
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = {
   header: {
     position: "fixed",
     top: 0,

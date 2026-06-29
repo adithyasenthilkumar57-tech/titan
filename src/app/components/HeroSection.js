@@ -1,29 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
-interface HeroSectionProps {
-  onExploreClick: () => void;
-  onSetBuilderClick: () => void;
-}
+export default function HeroSection({ onExploreClick, onSetBuilderClick }) {
+  const videoRef = useRef(null);
 
-export default function HeroSection({ onExploreClick, onSetBuilderClick }: HeroSectionProps) {
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(err => {
+        console.log("Video autoplay handled:", err);
+      });
+    }
+  }, []);
+
   return (
     <section id="hero" style={styles.section}>
       {/* Background Video */}
       <div className="hero-video-bg">
         <video
-          ref={(el) => {
-            if (el) {
-              el.muted = true;
-              el.play().catch(err => console.log("Video autoplay handled:", err));
-            }
-          }}
-          src="/api/video"
+          ref={videoRef}
           autoPlay
+          muted
           loop
           playsInline
-        />
+          preload="auto"
+        >
+          <source src="/titan%20herosection.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       
       {/* Overlay for Dark Theme Contrast */}
@@ -91,7 +96,7 @@ export default function HeroSection({ onExploreClick, onSetBuilderClick }: HeroS
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = {
   section: {
     position: "relative",
     width: "100%",

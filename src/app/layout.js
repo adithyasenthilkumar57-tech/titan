@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -12,7 +11,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Buckler | Make your gym incomparable",
   description: "We are a complete ecosystem of high-quality fitness solutions. We offer high-standard equipment and a variety of services to build your gym from scratch.",
   openGraph: {
@@ -22,11 +21,7 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
       <body>{children}</body>

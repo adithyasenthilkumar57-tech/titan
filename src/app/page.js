@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import GymSetBuilder from "./components/GymSetBuilder";
@@ -20,10 +20,10 @@ const CATEGORIES = [
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [globalSet, setGlobalSet] = useState<any[]>([]);
+  const [globalSet, setGlobalSet] = useState([]);
 
   // Smooth scroll helper
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -38,7 +38,7 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleAddToGlobalSet = (item: any) => {
+  const handleAddToGlobalSet = (item) => {
     setGlobalSet(prev => [...prev, item]);
   };
 
@@ -251,7 +251,7 @@ export default function Home() {
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = {
   aboutSection: {
     padding: "8rem 0 6rem 0",
     backgroundColor: "var(--bg-primary)",

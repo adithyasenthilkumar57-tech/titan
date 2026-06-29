@@ -3,17 +3,7 @@
 import React, { useState } from "react";
 
 // Definition of Gym Machines
-interface Machine {
-  id: string;
-  name: string;
-  series: string;
-  category: string;
-  estWeight: number; // in kg
-  areaReq: number; // in sq meters
-  svgType: "press" | "pulldown" | "cable" | "treadmill";
-}
-
-const MACHINES: Machine[] = [
+const MACHINES = [
   { id: "leg-press", name: "45º Leg Press Duet", series: "Duet Series", category: "Plate Loaded", estWeight: 280, areaReq: 5.5, svgType: "press" },
   { id: "chest-press", name: "Vertical Chest Press", series: "Infinite Series", category: "Pin Loaded", estWeight: 220, areaReq: 3.5, svgType: "press" },
   { id: "lat-pulldown", name: "Lat Pulldown Prime", series: "Prime Series", category: "Pin Loaded", estWeight: 240, areaReq: 3.2, svgType: "pulldown" },
@@ -34,15 +24,11 @@ const PAD_COLORS = [
   { name: "Obsidian Black", value: "#262524", texture: "radial-gradient(circle, #262524 10%, #151413 90%)" }
 ];
 
-interface GymSetBuilderProps {
-  onAddToGlobalSet: (item: any) => void;
-}
-
-export default function GymSetBuilder({ onAddToGlobalSet }: GymSetBuilderProps) {
-  const [selectedMachine, setSelectedMachine] = useState<Machine>(MACHINES[0]);
+export default function GymSetBuilder({ onAddToGlobalSet }) {
+  const [selectedMachine, setSelectedMachine] = useState(MACHINES[0]);
   const [selectedFrame, setSelectedFrame] = useState(FRAME_COLORS[0]);
   const [selectedPad, setSelectedPad] = useState(PAD_COLORS[0]);
-  const [addedItems, setAddedItems] = useState<any[]>([]);
+  const [addedItems, setAddedItems] = useState([]);
   const [showQuoteModal, setShowQuoteModal] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", gymName: "" });
 
@@ -57,11 +43,11 @@ export default function GymSetBuilder({ onAddToGlobalSet }: GymSetBuilderProps) 
     onAddToGlobalSet(newItem);
   };
 
-  const handleRemove = (id: string) => {
+  const handleRemove = (id) => {
     setAddedItems(addedItems.filter(item => item.id !== id));
   };
 
-  const handleQuoteSubmit = (e: React.FormEvent) => {
+  const handleQuoteSubmit = (e) => {
     e.preventDefault();
     alert(`Thank you ${formData.name}! Your quote request for ${addedItems.length} Buckler machines has been successfully sent!`);
     setShowQuoteModal(false);
@@ -451,7 +437,7 @@ export default function GymSetBuilder({ onAddToGlobalSet }: GymSetBuilderProps) 
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = {
   section: {
     padding: "6rem 0",
     backgroundColor: "var(--bg-primary)",

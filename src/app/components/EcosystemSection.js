@@ -2,16 +2,7 @@
 
 import React, { useState } from "react";
 
-interface CardData {
-  id: number;
-  title: string;
-  frontText: string;
-  backText: string;
-  imgUrl: string;
-  icon: string;
-}
-
-const CARDS: CardData[] = [
+const CARDS = [
   {
     id: 1,
     title: "Buckler Machines",
@@ -47,9 +38,9 @@ const CARDS: CardData[] = [
 ];
 
 export default function EcosystemSection() {
-  const [flippedCards, setFlippedCards] = useState<number[]>([]);
+  const [flippedCards, setFlippedCards] = useState([]);
 
-  const handleCardClick = (id: number) => {
+  const handleCardClick = (id) => {
     if (flippedCards.includes(id)) {
       setFlippedCards(flippedCards.filter(cId => cId !== id));
     } else {
@@ -57,7 +48,7 @@ export default function EcosystemSection() {
     }
   };
 
-  const renderIcon = (type: string) => {
+  const renderIcon = (type) => {
     switch (type) {
       case "dumbbell":
         return (
@@ -148,7 +139,7 @@ export default function EcosystemSection() {
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = {
   section: {
     padding: "6rem 0",
     backgroundColor: "var(--bg-primary)",

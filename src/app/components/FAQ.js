@@ -2,12 +2,7 @@
 
 import React, { useState } from "react";
 
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-const FAQS: FAQItem[] = [
+const FAQS = [
   {
     question: "What is the delivery time for the equipment?",
     answer: "The average delivery time ranges from 30 to 60 business days, depending on the machine lot volume and the custom finishes (such as frame colors and upholstery fabric) selected."
@@ -31,9 +26,9 @@ const FAQS: FAQItem[] = [
 ];
 
 export default function FAQ() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  const toggleIndex = (index: number) => {
+  const toggleIndex = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
@@ -62,7 +57,7 @@ export default function FAQ() {
                 className={`faq-item ${isActive ? "active" : ""}`}
                 onClick={() => toggleIndex(index)}
               >
-                <button style={styles.trigger}>
+                <button className="faq-trigger" style={styles.trigger}>
                   <span>{faq.question}</span>
                   <div style={styles.iconWrapper} className="faq-trigger-icon">
                     <svg
@@ -78,7 +73,7 @@ export default function FAQ() {
                     </svg>
                   </div>
                 </button>
-                <div style={styles.contentWrapper}>
+                <div className="faq-content" style={styles.contentWrapper}>
                   <p style={styles.answer}>{faq.answer}</p>
                 </div>
               </div>
@@ -90,7 +85,7 @@ export default function FAQ() {
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = {
   section: {
     padding: "6rem 0",
     backgroundColor: "var(--bg-primary)",

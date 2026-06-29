@@ -88,7 +88,7 @@ export default function Marquee() {
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = {
   container: {
     width: "100%",
     overflow: "hidden",

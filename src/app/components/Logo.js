@@ -1,12 +1,6 @@
 import React from "react";
 
-interface LogoProps {
-  className?: string;
-  width?: number;
-  height?: number;
-}
-
-export default function Logo({ className = "", width = 160, height = 40 }: LogoProps) {
+export default function Logo({ className = "", width = 160, height = 40 }) {
   return (
     <svg
       width={width}
